@@ -36,10 +36,18 @@ describe('会員登録', () => {
     await SignupPage.setNotification(false);
     await SignupPage.submit();
 
-    await expect(SignupPage.emailMessage).toHaveText('このフィールドを入力してください。');
-    await expect(SignupPage.passwordMessage).toHaveText('このフィールドを入力してください。');
-    await expect(SignupPage.passwordConfirmationMessage).toHaveText('このフィールドを入力してください。');
-    await expect(SignupPage.usernameMessage).toHaveText('このフィールドを入力してください。');
+    await expect(SignupPage.emailMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
+    await expect(SignupPage.passwordMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
+    await expect(SignupPage.passwordConfirmationMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
+    await expect(SignupPage.usernameMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
     await expect(SignupPage.addressMessage).toHaveText('');
     await expect(SignupPage.telMessage).toHaveText('');
     await expect(SignupPage.genderMessage).toHaveText('');
@@ -61,12 +69,20 @@ describe('会員登録', () => {
     await SignupPage.setNotification(true);
     await SignupPage.submit();
 
-    await expect(SignupPage.emailMessage).toHaveText('メールアドレスを入力してください。');
-    await expect(SignupPage.passwordMessage).toHaveText('8文字以上で入力してください。');
-    await expect(SignupPage.passwordConfirmationMessage).toHaveText('8文字以上で入力してください。');
+    await expect(SignupPage.emailMessage).toHaveText(
+      'メールアドレスを入力してください。'
+    );
+    await expect(SignupPage.passwordMessage).toHaveText(
+      '8文字以上で入力してください。'
+    );
+    await expect(SignupPage.passwordConfirmationMessage).toHaveText(
+      '8文字以上で入力してください。'
+    );
     await expect(SignupPage.usernameMessage).toHaveText('');
     await expect(SignupPage.addressMessage).toHaveText('');
-    await expect(SignupPage.telMessage).toHaveText('指定されている形式で入力してください。');
+    await expect(SignupPage.telMessage).toHaveText(
+      '指定されている形式で入力してください。'
+    );
     await expect(SignupPage.genderMessage).toHaveText('');
     await expect(SignupPage.birthdayMessage).toHaveText('');
   });
@@ -86,7 +102,9 @@ describe('会員登録', () => {
     await SignupPage.setNotification(true);
     await SignupPage.submit();
 
-    await expect(SignupPage.emailMessage).toHaveText('このメールアドレスはすでに登録済みです。');
+    await expect(SignupPage.emailMessage).toHaveText(
+      'このメールアドレスはすでに登録済みです。'
+    );
   });
 
   it('入力パスワードが一致しないとエラーとなること', async () => {
@@ -103,6 +121,8 @@ describe('会員登録', () => {
     await SignupPage.setNotification(true);
     await SignupPage.submit();
 
-    await expect(SignupPage.passwordConfirmationMessage).toHaveText('入力されたパスワードと一致しません。');
+    await expect(SignupPage.passwordConfirmationMessage).toHaveText(
+      '入力されたパスワードと一致しません。'
+    );
   });
 });

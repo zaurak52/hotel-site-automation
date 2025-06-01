@@ -20,8 +20,12 @@ describe('ログイン', () => {
     await LoginPage.password.setValue('');
     await LoginPage.submit();
 
-    await expect(LoginPage.emailMessage).toHaveText('このフィールドを入力してください。');
-    await expect(LoginPage.passwordMessage).toHaveText('このフィールドを入力してください。');
+    await expect(LoginPage.emailMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
+    await expect(LoginPage.passwordMessage).toHaveText(
+      'このフィールドを入力してください。'
+    );
   });
 
   it('未登録のユーザでエラーとなること', async () => {
@@ -31,7 +35,11 @@ describe('ログイン', () => {
     await LoginPage.password.setValue('error');
     await LoginPage.submit();
 
-    await expect(LoginPage.emailMessage).toHaveText('メールアドレスまたはパスワードが違います。');
-    await expect(LoginPage.passwordMessage).toHaveText('メールアドレスまたはパスワードが違います。');
+    await expect(LoginPage.emailMessage).toHaveText(
+      'メールアドレスまたはパスワードが違います。'
+    );
+    await expect(LoginPage.passwordMessage).toHaveText(
+      'メールアドレスまたはパスワードが違います。'
+    );
   });
 });

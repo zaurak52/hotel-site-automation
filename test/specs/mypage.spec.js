@@ -109,7 +109,9 @@ describe('マイページ', () => {
     const filePath = path.join(__dirname, '..', 'uploadfiles', 'dummy.txt');
     await IconPage.icon.setValue(filePath);
 
-    await expect(IconPage.iconMessage).toHaveText('画像ファイルを選択してください。');
+    await expect(IconPage.iconMessage).toHaveText(
+      '画像ファイルを選択してください。'
+    );
   });
 
   it('アイコン設定で10KBを越えるファイルはエラーとなること', async () => {
@@ -119,10 +121,17 @@ describe('マイページ', () => {
     await LoginPage.password.setValue('11111111');
     await LoginPage.submit();
     await MyPage.iconLink.click();
-    const filePath = path.join(__dirname, '..', 'uploadfiles', '240x240_12.png');
+    const filePath = path.join(
+      __dirname,
+      '..',
+      'uploadfiles',
+      '240x240_12.png'
+    );
     await IconPage.icon.setValue(filePath);
 
-    await expect(IconPage.iconMessage).toHaveText('ファイルサイズは10KB以下にしてください。');
+    await expect(IconPage.iconMessage).toHaveText(
+      'ファイルサイズは10KB以下にしてください。'
+    );
   });
 
   it('設定したアイコンがマイページに表示されること', async () => {
@@ -132,7 +141,12 @@ describe('マイページ', () => {
     await LoginPage.password.setValue('11111111');
     await LoginPage.submit();
     await MyPage.iconLink.click();
-    const filePath = path.join(__dirname, '..', 'uploadfiles', '240x240_01.png');
+    const filePath = path.join(
+      __dirname,
+      '..',
+      'uploadfiles',
+      '240x240_01.png'
+    );
     await IconPage.icon.setValue(filePath);
     await IconPage.setZoom(80);
     await IconPage.setColor('#000000');
@@ -140,7 +154,11 @@ describe('マイページ', () => {
 
     await expect(MyPage.iconImage).toExist();
     // await expect(MyPage.iconImage).toHaveAttribute('width', '70');
-    await expect((await MyPage.iconImage.getCSSProperty('backgroundColor')).value).toBe('rgba(0,0,0,1)');
+    await expect(
+      (
+        await MyPage.iconImage.getCSSProperty('backgroundColor')
+      ).value
+    ).toBe('rgba(0,0,0,1)');
   });
 
   it('新規登録したユーザが削除できること', async () => {
@@ -151,11 +169,15 @@ describe('マイページ', () => {
     await LoginPage.submit();
     await MyPage.delete();
 
-    await expect(await browser.getAlertText()).toBe('退会すると全ての情報が削除されます。\nよろしいですか？');
+    await expect(await browser.getAlertText()).toBe(
+      '退会すると全ての情報が削除されます。\nよろしいですか？'
+    );
     await browser.acceptAlert();
     await browser.pause(1000); // eslint-disable-line wdio/no-pause
-    await expect(await browser.getAlertText()).toBe('退会処理を完了しました。ご利用ありがとうございました。');
+    await expect(await browser.getAlertText()).toBe(
+      '退会処理を完了しました。ご利用ありがとうございました。'
+    );
     await browser.acceptAlert();
-    await expect(browser).toHaveUrl('index.html', {containing: true});
+    await expect(browser).toHaveUrl('index.html', { containing: true });
   });
 });

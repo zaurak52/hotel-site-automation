@@ -20,8 +20,10 @@ class ReservePage extends Page {
   get reserveTermMessage() { return $('#term ~ .invalid-feedback'); }
   get headCountMessage() { return $('#head-count ~ .invalid-feedback'); }
   get usernameMessage() { return $('#username ~ .invalid-feedback'); }
+  get contactMessage() { return $('#contact ~ .invalid-feedback'); }
   get emailMessage() { return $('#email ~ .invalid-feedback'); }
   get telMessage() { return $('#tel ~ .invalid-feedback'); }
+  get totalBill() { return $('#total-bill'); }
 
   async setReserveDate(value) {
     await (await this.reserveDate).setValue(value);

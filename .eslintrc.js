@@ -5,7 +5,7 @@ module.exports = {
         "node": true
     },
     "plugins": [
-      "wdio"
+        "wdio"
     ],
     "extends": "plugin:wdio/recommended",
     "globals": {
@@ -15,6 +15,6 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 2018
     },
-    "rules": {
+    rules: {
     }
 };
